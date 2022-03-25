@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Projetos de extensão</title>
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+      }
+
+      nav {
+        text-align: center;
+        background-color: #efefef;
+        padding: 10px;
+      }
+
+      .cards {
+        display: grid;
+      }
+
+      .card {
+        position: relative;
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      .card h3 {
+        position: absolute;
+        top: 0px;
+        color: #efefef;
+      }
+
+      .card p {
+        position: absolute;
+        bottom: 0px;
+        color: #efefef;
+      }
+    </style>
+	</head>
+	<body>
+		<header>
+      <nav>
+        <h1>
+          Projetos de extensão
+        </h1>
+      </nav>
+    </header>
+
+    <main>
+      <ul class="cards">
+      </ul>
+    </main>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <script type="text/javascript">
+      const cursos = [
+        {
+          title: 'Crie seu primeiro jogo utilizando Unity',
+          subtitle: 'Desenvolvimento de jogos. Unity. Plataformas 2D/3D. Assets. GameObject. Rigidbody2D. Collider.',
+          img: 'https://styles.redditmedia.com/t5_2yfb2/styles/communityIcon_2bgcjio0ahk81.png?width=256&s=d88bc7c0896de1cdf679f3abd3039386c77c7eb4',
+        },
+        {
+          title: 'IoT para iniciantes na prática com micro: bit e Arduino',
+          subtitle: 'IoT. Sensores. Atuadores. Placas de prototipação. BBC micro:bit. Arduino.',
+          img: 'https://www.cpd.com.br/wp-content/uploads/2021/04/001-internet-of-things.png',
+        },
+        {
+          title: 'Crie Apps para Alexa: Alexa Skill Builder para iniciantes',
+          subtitle: 'Amazon Alexa. Amazon Echo. Alexa Developer Portal. Alexa Skills Kit. chatbots. assistentes de conversação. Intents.',
+          img: 'https://cdn.iconscout.com/icon/premium/png-256-thumb/alexa-2820998-2349497.png',
+        },
+        {
+          title: 'Introdução a algoritmos e linguagens de programação',
+          subtitle: 'O pensamento lógico. Conceito de algoritmo. Pseudocódigos. Lógica de programação. Introdução a linguagem Java.',
+          img: 'https://www.cin.ufpe.br/~dmac2/ionicons/img-java.png',
+        },
+        {
+          title: 'Introdução a orientação a objetos (OOP) em Java',
+          subtitle: 'Introdução aos conceitos básicos de POO: classes, objetos, encapsulamento, herança e polimorfismo. Construtores, destrutores, variáveis e métodos. Entendimento e aplicação dos conceitos de OO utilizando o Java.',
+          img: 'https://www.cin.ufpe.br/~dmac2/ionicons/img-java.png',
+        },
+      ];
+      function mountCards() {
+        const cards = document.querySelector('.cards');
+
+        cursos.forEach(curso => {
+          const li = document.createElement('li');
+          li.setAttribute('class', 'card');
+          const img = document.createElement('img');
+          img.setAttribute('src', curso.img);
+          const h3 = document.createElement('h3');
+          h3.innerHTML = curso.title;
+          const p = document.createElement('p');
+          p.innerHTML = curso.title;
+
+          li.appendChild(img);
+          li.appendChild(h3);
+          li.appendChild(p);
+          document.querySelector('.cards').appendChild(li);
+        });
+      }
+
+      mountCards();
+
+      $(document).ready(function(){
+        $('.cards').slick({
+          centerMode: true,
+          centerPadding: '60px',
+          slidesToShow: 3,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 3
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '40px',
+                slidesToShow: 1
+              }
+            }
+          ]
+        });
+      });
+    </script>
+	</body>
+</html>
